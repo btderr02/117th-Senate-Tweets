@@ -1,7 +1,8 @@
 # 117th-Senate-Tweets
 This repository contains Tweets gathered from the Twitter accounts of members of the 117th Senate. They were collected on 8 April 2023. 
-The following Python code was used to gather the data:
+The following Python code was used to gather the data. It utilizes an Excel file with a list of each Senator's account for this term period. Tweets were gathered from January 3, 2021 to January 3, 2023. Tweets from Raphael Warnock and Alex Padilla came into office on January 20, 2021. Their tweets from January 3, 2021 to January 19, 2023 are still included in the dataset. Kamala Harris and Kelly Loeffler were members of the Senate from January 3, 2021 to January 20, 2021. None of their Tweets are included  in the dataset.
 
+```python
 import snscrape.modules.twitter as sntwitter
 import pandas as pd
 import openpyxl
@@ -31,3 +32,4 @@ for index, row in df_accounts.iterrows():
     df_tweets[df_tweets['content'].str.contains(url)].to_csv(f'{url}_tweets.csv', index=False, encoding='utf-8-sig')
 
 print("Twitter data scraped and saved successfully.")
+```
